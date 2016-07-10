@@ -68,6 +68,7 @@ RUN python -m nltk.downloader -d /usr/local/share/nltk_data punkt
 
 # For geospatial connector ; pfrontiera
 RUN pip install geopy==1.11.0
+RUN pip install folium==0.2.1
 
 # For ds8
 RUN pip install okpy==1.6.4
