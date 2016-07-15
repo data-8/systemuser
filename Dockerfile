@@ -68,9 +68,15 @@ RUN python -m nltk.downloader -d /usr/local/share/nltk_data punkt
 
 # For geospatial connector ; pfrontiera
 RUN pip install geopy==1.11.0
-RUN pip install folium==0.2.1
+# RUN pip install folium==0.2.1
+
+# jupyter-drive
+RUN pip install git+https://github.com/jupyter/jupyter-drive@5458133
+# Before enabling this, we need to be able to install and configure
+# the extension for all users
+# RUN python -m jupyterdrive --mixed
 
 # For ds8
 RUN pip install okpy==1.6.4
 RUN pip install pypandoc==1.1.3
-RUN pip install datascience==0.5.20
+RUN pip install datascience==0.6.0
