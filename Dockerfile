@@ -72,11 +72,11 @@ RUN pip install geopy==1.11.0
 
 # jupyter-drive
 RUN pip install git+https://github.com/jupyter/jupyter-drive@5458133
-# Before enabling this, we need to be able to install and configure
-# the extension for all users
-# RUN python -m jupyterdrive --mixed
+RUN python -m jupyterdrive --mixed
+# This contains our site's OAuth client ID
+ADD common.json /usr/local/etc/jupyter/nbconfig/
 
 # For ds8
 RUN pip install okpy==1.6.4
-RUN pip install pypandoc==1.1.3
+RUN pip install pypandoc==1.2.0
 RUN pip install datascience==0.6.0
