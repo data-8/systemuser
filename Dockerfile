@@ -74,7 +74,8 @@ RUN pip install geopy==1.11.0
 RUN pip install git+https://github.com/jupyter/jupyter-drive@5458133
 RUN python -m jupyterdrive --mixed
 # This contains our site's OAuth client ID
-ADD common.json /usr/local/etc/jupyter/nbconfig/
+ADD common.json                  /usr/local/etc/jupyter/nbconfig/
+ADD jupyter_notebook_config.json /usr/local/etc/jupyter/
 
 # For ds8
 RUN pip install okpy==1.6.4
