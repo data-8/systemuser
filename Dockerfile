@@ -79,7 +79,7 @@ RUN pip install tqdm==4.8.4
 # For neuro connector ; choldgraf 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y \
 	imagemagick
-RUN pip install pycortex==0.1.1
+#RUN pip install pycortex==0.1.1
 
 ## jupyter-drive
 #RUN pip install git+https://github.com/jupyter/jupyter-drive@5458133
