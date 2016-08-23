@@ -46,6 +46,8 @@ RUN conda install --yes psycopg2==2.6.1
 # For humanities connector ; troland
 RUN conda install --yes gensim==0.12.4
 RUN conda install --yes nltk==3.2.1
+# For neuro connector ; mark.lescroart
+RUN conda install --yes lxml==3.6.4
 
 # Pre-generate font cache so the user does not see fc-list warning when
 # importing datascience. https://github.com/matplotlib/matplotlib/issues/5836
@@ -70,12 +72,21 @@ RUN python -m nltk.downloader -d /usr/local/share/nltk_data punkt
 RUN pip install geopy==1.11.0
 # RUN pip install folium==0.2.1
 
-# jupyter-drive
-RUN pip install git+https://github.com/jupyter/jupyter-drive@5458133
-RUN python -m jupyterdrive --mixed
-# This contains our site's OAuth client ID
-ADD common.json                  /usr/local/etc/jupyter/nbconfig/
-ADD jupyter_notebook_config.json /usr/local/etc/jupyter/
+# For neuro connector ; mark.lescroart
+RUN pip install nilabel==2.0.2
+RUN pip install mne==0.12.0
+RUN pip install tqdm==4.8.4
+# For neuro connector ; choldgraf 
+DEBIAN_FRONTEND=noninteractive apt-get install -q -y \
+	imagemagick
+RUN pip install pycortex==0.1.1
+
+## jupyter-drive
+#RUN pip install git+https://github.com/jupyter/jupyter-drive@5458133
+#RUN python -m jupyterdrive --mixed
+## This contains our site's OAuth client ID
+#ADD common.json                  /usr/local/etc/jupyter/nbconfig/
+#ADD jupyter_notebook_config.json /usr/local/etc/jupyter/
 
 # For ds8
 RUN pip install okpy==1.6.4
