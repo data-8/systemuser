@@ -73,7 +73,7 @@ RUN pip install geopy==1.11.0
 # RUN pip install folium==0.2.1
 
 # For neuro connector ; mark.lescroart
-RUN pip install nilabel==2.0.2
+RUN pip install nibabel==2.0.2
 RUN pip install mne==0.12.0
 RUN pip install tqdm==4.8.4
 # For neuro connector ; choldgraf 
@@ -92,3 +92,6 @@ RUN pip install pycortex==0.1.1
 RUN pip install okpy==1.6.4
 RUN pip install pypandoc==1.2.0
 RUN pip install datascience==0.6.0
+
+RUN apt-get clean
+RUN conda clean --all --yes
