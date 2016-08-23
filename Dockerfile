@@ -77,7 +77,7 @@ RUN pip install nibabel==2.0.2
 RUN pip install mne==0.12.0
 RUN pip install tqdm==4.8.4
 # For neuro connector ; choldgraf 
-DEBIAN_FRONTEND=noninteractive apt-get install -q -y \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y \
 	imagemagick
 RUN pip install pycortex==0.1.1
 
