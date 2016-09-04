@@ -80,4 +80,4 @@ ADD jupyter_notebook_config.json /usr/local/etc/jupyter/
 # For ds8
 RUN pip install okpy==1.6.4
 RUN pip install pypandoc==1.2.0
-RUN pip install datascience==0.6.0
+RUN pip install datascience==0.7.0
