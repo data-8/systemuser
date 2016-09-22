@@ -93,5 +93,9 @@ RUN pip install okpy==1.6.4
 RUN pip install pypandoc==1.2.0
 RUN pip install datascience==0.7.0
 
+# Ensure LaTeX buffer is large enough
+RUN echo buf_size=6400000 > /etc/texmf/texmf.d/10data8.cnf
+RUN update-texmf
+
 RUN apt-get clean
 RUN conda clean --all --yes
