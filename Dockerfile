@@ -51,6 +51,8 @@ RUN conda install --yes lxml==3.6.4
 
 # Pre-generate font cache so the user does not see fc-list warning when
 # importing datascience. https://github.com/matplotlib/matplotlib/issues/5836
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y \
+	libxrender1
 RUN python -c 'import matplotlib.pyplot'
 
 # Hack to use xelatex instead of pdflatex
@@ -91,11 +93,18 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y \
 # For ds8
 RUN pip install okpy==1.6.4
 RUN pip install pypandoc==1.2.0
-RUN pip install datascience==0.7.0
+RUN pip install datascience==0.7.1
 
 # Ensure LaTeX buffer is large enough
 RUN echo buf_size=6400000 > /etc/texmf/texmf.d/10data8.cnf
 RUN update-texmf
+
+# Restore atomic intermediate if notebook is invalid.
+# This happens when kernels crash on oom conditions.
+RUN wget -q -P /tmp http://github.com/jupyter/notebook/commit/6b220c9.patch
+# Change into python's site-packages/
+RUN cd $(python -c "import site; print(site.getsitepackages()[0])") && \
+	patch -p1 < /tmp/6b220c9.patch
 
 RUN apt-get clean
 RUN conda clean --all --yes
