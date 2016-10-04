@@ -107,7 +107,7 @@ RUN cd $(python -c "import site; print(site.getsitepackages()[0])") && \
 	patch -p1 < /tmp/6b220c9.patch
 
 # Show memory usage via Yuvi's extension
-RUN pip install git+https://github.com/yuvipanda/nbresuse.git
+RUN pip install git+https://github.com/data-8/nbresuse.git
 RUN jupyter serverextension enable  --system --py nbresuse
 RUN jupyter nbextension     install --system --py nbresuse
 RUN jupyter nbextension     enable  --system --py nbresuse
