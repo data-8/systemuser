@@ -112,5 +112,8 @@ RUN jupyter serverextension enable  --system --py nbresuse
 RUN jupyter nbextension     install --system --py nbresuse
 RUN jupyter nbextension     enable  --system --py nbresuse
 
+# For child development connector; nishantdesai
+RUN pip install pygrowup==0.8.2
+
 RUN apt-get clean
 RUN conda clean --all --yes
