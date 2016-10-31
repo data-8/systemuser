@@ -115,9 +115,10 @@ RUN jupyter nbextension     enable  --system --py nbresuse
 # For child development connector; nishantdesai
 RUN pip install pygrowup==0.8.2
 
-# For cogneuro's pycortex
+# For cogneuro: pycortex
 RUN pip install git+https://github.com/ryanlovett/nbserverproxy.git
 RUN jupyter serverextension enable --system --py nbserverproxy
+RUN pip install --egg git+https://github.com/gallantlab/pycortex@data8
 
 RUN apt-get clean
 RUN conda clean --all --yes
