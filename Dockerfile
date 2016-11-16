@@ -95,6 +95,10 @@ RUN pip install okpy==1.6.4
 RUN pip install pypandoc==1.2.0
 RUN pip install datascience==0.8.2
 
+RUN pip install git+https://github.com/yuvipanda/nbtimetravel.git
+RUN jupyter nbextension install --user --py nbtimetravel
+RUN jupyter nbextension enable --user --py nbtimetravel
+
 # Ensure LaTeX buffer is large enough
 RUN echo buf_size=6400000 > /etc/texmf/texmf.d/10data8.cnf
 RUN update-texmf
