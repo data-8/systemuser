@@ -112,6 +112,11 @@ RUN jupyter serverextension enable  --system --py nbresuse
 RUN jupyter nbextension     install --system --py nbresuse
 RUN jupyter nbextension     enable  --system --py nbresuse
 
+# Record notebook history using nbtimetravel
+RUN pip install git+https://github.com/data-8/nbtimetravel
+RUN jupyter nbextension install --system --py nbtimetravel
+RUN jupyter nbextension enable  --system --py nbtimetravel
+
 # For child development connector; nishantdesai
 RUN pip install pygrowup==0.8.2
 
