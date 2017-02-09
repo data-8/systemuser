@@ -91,9 +91,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y \
 #ADD jupyter_notebook_config.json /usr/local/etc/jupyter/
 
 # For ds8
-RUN pip install okpy==1.6.4
+RUN pip install okpy==1.9.5
 RUN pip install pypandoc==1.2.0
-RUN pip install datascience==0.8.2
+RUN pip install datascience==0.9.1
 
 # Ensure LaTeX buffer is large enough
 RUN echo buf_size=6400000 > /etc/texmf/texmf.d/10data8.cnf
